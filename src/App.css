@@ -1,0 +1,46 @@
+@import "https://unpkg.com/open-props" layer(design.system);
+@import "https://unpkg.com/open-props/normalize.min.css" layer(demo.support);
+
+body {
+  background-color: white;
+}
+@layer demo {
+  .rounded-border-gradient {
+    inline-size: var(--size-content-1);
+    aspect-ratio: var(--ratio-widescreen);
+    border: solid var(--size-2) transparent;
+    border-radius: var(--radius-4);
+    background: linear-gradient(var(--surface-1), var(--surface-1)) padding-box,
+      var(--gradient-1) border-box;
+  }
+}
+h3 {
+  color: #212121;
+  font-weight: 400;
+}
+h1,
+p {
+  font-family: Lato;
+}
+.box {
+  position: relative;
+  background: #fff;
+  /*The background extends to the outside edge of the padding. No background is drawn beneath the border.*/
+  background-clip: padding-box;
+  border: solid 8px transparent;
+  border-radius: 0.8rem;
+}
+.box:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  margin: -8px;
+  /* same as border width */
+  border-radius: inherit;
+  /* inherit container box's radius */
+  background: linear-gradient(to top, #512da8, #9575cd);
+}
